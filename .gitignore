@@ -1,0 +1,8 @@
+**/node_modules/
+**/npm-debug.log
+
+coverage/
+typings/
+.settings/
+.projectile
+.tern-project

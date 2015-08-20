@@ -1,0 +1,43 @@
+{
+  "name": "sway-connect",
+  "version": "0.0.0",
+  "description": "Connect middleware for Swagger integrations using sway.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "api",
+    "connect",
+    "express",
+    "swagger"
+  ],
+  "author": {
+    "name": "Jeremy Whitlock",
+    "email": "jwhitlock@apache.org",
+    "url": "https://github.com/whitlockjc"
+  },
+  "bugs": {
+    "url": "https://github.com/apigee-127/sway-connect/issues"
+  },
+  "homepage": "https://github.com/apigee-127/sway-connect",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apigee-127/sway-connect.git"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-mocha": "^2.1.3",
+    "run-sequence": "^1.1.2"
+  }
+}
