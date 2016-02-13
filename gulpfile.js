@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2015 Apigee Corporation
+ * Copyright (c) 2016 Apigee Corporation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,11 @@
 
 'use strict';
 
-var $ = require('gulp-load-plugins')();
+var $ = require('gulp-load-plugins')({
+  rename: {
+    'gulp-jsdoc-to-markdown': 'jsdoc2MD'
+  }
+});
 var del = require('del');
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
@@ -33,6 +37,13 @@ gulp.task('clean', function (done) {
   del([
     'coverage'
   ], done);
+});
+
+gulp.task('docs', function () {
+  return gulp.src('./lib/*.js')
+    .pipe($.concat('API.md'))
+    .pipe($.jsdoc2MD({'sort-by': ['category', 'name']}))
+    .pipe(gulp.dest('docs'));
 });
 
 gulp.task('lint', function () {

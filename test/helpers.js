@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2015 Apigee Corporation
+ * Copyright (c) 2016 Apigee Corporation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,3 +23,52 @@
  */
 
 'use strict';
+
+var connect = require('connect');
+
+/**
+ * Creates a connect server.
+ *
+ * @param {function[]} middlewares - The middlewares to register, in the provided order
+ * @param {object} [options] - The server options
+ *
+ * @returns {object} The connect server
+ */
+module.exports.createServer = function (middlewares, options) {
+  var app = connect();
+
+  // Options is optional so handle this scenario
+  if (typeof options === 'undefined') {
+    options = {};
+  }
+
+  // Register each middleware
+  middlewares.forEach(function (middleware) {
+    app.use(middleware);
+  });
+
+  // Register an error handler
+  app.use(function (err, req, res, next) {
+    if (err) {
+      if (res.statusCode < 400) {
+        res.statusCode = 500;
+      }
+
+      // Useful for debugging
+      // console.log(err);
+      // console.log(err.stack);
+
+      // if (err.results) {
+      //   console.log(JSON.stringify(err.results, null, 2));
+      // }
+
+      res.end(err.message);
+
+      return next();
+    } else {
+      return next();
+    }
+  });
+
+  return app;
+};
