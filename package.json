@@ -18,13 +18,13 @@
     "url": "https://github.com/whitlockjc"
   },
   "bugs": {
-    "url": "https://github.com/apigee-127/sway-connect/issues"
+    "url": "https://github.com/whitlockjc/sway-connect/issues"
   },
-  "homepage": "https://github.com/apigee-127/sway-connect",
+  "homepage": "https://github.com/whitlockjc/sway-connect",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/apigee-127/sway-connect.git"
+    "url": "git://github.com/whitlockjc/sway-connect.git"
   },
   "files": [
     "index.js",
