@@ -28,11 +28,11 @@
 
 var assert = require('assert');
 var helpers = require('./helpers');
-var middleware = require('../lib/metadata');
+var middleware = require('../lib/matcher');
 var request = require('supertest');
 var Sway = require('sway');
 
-describe('Metadata Middleware', function () {
+describe('Request Matcher Middleware', function () {
   var swaggerApi;
 
   before(function (done) {

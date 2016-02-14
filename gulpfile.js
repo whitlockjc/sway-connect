@@ -76,5 +76,5 @@ gulp.task('test', function () {
 });
 
 gulp.task('default', function (cb) {
-  runSequence('lint', 'test', cb);
+  runSequence('lint', 'test', 'docs', cb);
 });
